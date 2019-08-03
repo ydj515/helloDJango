@@ -1,5 +1,11 @@
 # helloDJango
 
+### DJango 설치
+* **pip install Django**
+* **git clone https://github.com/django/django.git**
+* **pip install -e django/**
+
+
 ### 실행방법
 **python manage.py runserver**
 
