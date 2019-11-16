@@ -22,3 +22,26 @@ pw : admin
 ```
 * 접속 URL
 **http://127.0.0.1:8000/admin/**
+
+### 실습해보기
+- [mysite] - [polls] - urls.py를 연다
+
+```python
+from django.contrib import admin
+from django.urls import include, path
+
+from . import views
+
+app_name = 'polls'
+urlpatterns = [
+    path('', views.IndexView.as_view(), name='index'),
+    path('<int:pk>/', views.DetailView.as_view(), name='detail'),
+    path('<int:pk>/results/', views.ResultsView.as_view(), name='results'),
+    path('<int:question_id>/vote/', views.vote, name='vote'),
+]
+```
+
+- 위와 같은 곳에서 django 1.x 버전과 2.0 버전의 차이점 중의 하나가 나타남
+- 1.x 버전에서는 url 지정에서 url 함수를 사용하며 정규식을 사용하는데 2.0 이후부터는 path함수를 통해 정규식이 필요 없음
+
+
